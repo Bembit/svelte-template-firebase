@@ -1,0 +1,5 @@
+# .env variables example
+
+FB_PROJECT_ID=""
+FB_CLIENT_EMAIL=""
+FB_PRIVATE_KEY=""
