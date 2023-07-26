@@ -17,6 +17,6 @@
 # project overview / settings / service accounts / generate new private key / download
 # paste into /service-account.json
 
-# copy project_id from service-account.json to FB_PROJECT_ID="" in .env
-# copy client_email from service-account.json to FB_CLIENT_EMAIL="" in .env
-# copy private_key from service-account.json to FB_PRIVATE_KEY="" in .env
+# copy project_id from service-account.json to FIREBASE_PROJECT_ID="" in .env
+# copy client_email from service-account.json to FIREBASE_CLIENT_EMAIL="" in .env
+# copy private_key from service-account.json to FIREBASE_PRIVATE_KEY="" in .env
