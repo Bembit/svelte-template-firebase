@@ -37,11 +37,30 @@
 ###### login errors out from 127.0.0.1:5173, use localhost or add the ip to firebase authorised domains
 
 
-### facebook login
+### facebook login - 10/10 would avoid in production
 
 ###### create app on facebook dev, copy app ID and app secret to firebase auth methods 
 
+<!-- not sure why I'd ever need these. -->
 ###### moved FACEBOOK_APP_ID="123" and FACEBOOK_API_VERSION="v1.0" to .env
 
 ###### https://developers.facebook.com/apps/app_id123here/fb-login/settings/
-###### https://sveltekit-template-firebase.firebaseapp.com/__/auth/handler
+###### https://appname.firebaseapp.com/__/auth/handler
+
+###### fb / settings / apps and websites/ apps websties and games turn on
+
+###### https://developers.facebook.com/apps/123123123123/fb-login/quickstart
+
+###### I knew I'm going to spend a day finding top secret facebook dev features blocking me from logins
+
+###### I think I added these as changes to USE CASES in facebook.dev, not sure with 27 tabs open
+###### will rebuild from zero to double check this whole FB auth mess
+
+###### Authentication and account creation
+###### Permissions: email, public_profile
+###### Products: Facebook Login
+
+<!-- https://firebase.google.com/docs/reference/node/firebase.auth.FacebookAuthProvider#setcustomparameters -->
+
+# 1. lets create a user profile before wasting more time on another auth method
+# 2. after 3rd method, merge accounts with same email

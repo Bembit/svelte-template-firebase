@@ -1,10 +1,12 @@
 <script lang="ts">
 
+// /lib/firebase.ts has the exports for firebase
 import { auth } from "$lib/firebase";
 
 import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 // updateProfile
 
+// GOOGLE login
 // login errors out from 127.0.0.1:5173, use localhost or add the ip to firebase authorised domains
 async function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
@@ -16,36 +18,19 @@ async function signInWithGoogle() {
     console.log(user)
 }
 
-// facebook login starts here
-
+// FACEBOOK login
 async function signInWithFacebook() {
     const provider = new FacebookAuthProvider();
+    // customParams need more digging for fb
+    // provider.setCustomParameters({ auth_type: "reauthenticate" });
     const user = await signInWithPopup(auth, provider);
+    // auth with facebook works. if I relog with same email google, google overwrites facebook
+    // after trying to relog with facebook get an error
+    // FirebaseError: Firebase: Error (auth/account-exists-with-different-credential).
+    // should be able to link accounts by default
+    // catch the error, and instead of useful error message "already exists" show "something went wrong"
     console.log(user)
 }
-
-const FacebookLogin = async () => {
-    try {
-        const user = await signInWithPopup(auth, fbProvider);
-        console.log(user);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-const fbProvider = new FacebookAuthProvider();
-    const FacebookProvider = async () => {
-        try {
-            const result = await signInWithPopup(auth, fbProvider);
-            const credential = await FacebookAuthProvider.credentialFromResult(result);
-            // const token = credential.accessToken;
-            // let photoUrl = result.user.photoURL + "?height=500&access_token=" + token;
-            // await updateProfile(auth.currentUser, { photoURL: photoUrl });
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
 
 // auth provider linking merging wow sounds fun already
 // https://firebase.google.com/docs/auth/web/account-linking?hl=en&authuser=0
