@@ -1,3 +1,5 @@
-# create-svelte
+# Playing with Sveltekit.
 
-create svelte@latest with TS, eslint, vitest
+I wanted to like Svelte/Kit so hard.
+
+But I just don't.
